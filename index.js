@@ -1,8 +1,6 @@
 const pages = document.querySelectorAll(".page");
 
-const feedBtn = document.getElementById("feedBtn");
-const decideBtn = document.getElementById("decideBtn");
-const savedBtn = document.getElementById("savedBtn");
+const navButtons = document.querySelectorAll(".nav-btn");
 
 const feedList = document.getElementById("feedList");
 const savedList = document.getElementById("savedList");
@@ -17,14 +15,19 @@ const places = [
 function showPage(pageId) {
   pages.forEach((page) => page.classList.add("hidden"));
   document.getElementById(pageId).classList.remove("hidden");
+
+  navButtons.forEach((btn) => btn.classList.remove("active"));
+  document.querySelector(`[data-page="${pageId}"]`).classList.add("active");
 }
 
-feedBtn.onclick = () => showPage("feed");
-decideBtn.onclick = () => showPage("decide");
-savedBtn.onclick = () => {
-  showPage("saved");
-  loadSaved();
-};
+navButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    showPage(btn.dataset.page);
+    if (btn.dataset.page === "saved") {
+      loadSaved();
+    }
+  });
+});
 
 function loadFeed() {
   feedList.innerHTML = "";
