@@ -1,40 +1,106 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Segoe UI", Tahoma, sans-serif;
   margin: 0;
-  padding: 0;
-  background: #f5f5f5;
+  background: #f2f4f8;
+  color: #222;
 }
 
 nav {
   display: flex;
   justify-content: space-around;
-  background: #222;
-  padding: 10px;
+  background: #111827;
+  padding: 12px;
 }
 
-nav button {
+.nav-btn {
   background: none;
-  color: white;
   border: none;
+  color: #9ca3af;
   font-size: 16px;
   cursor: pointer;
+  padding: 8px 12px;
+}
+
+.nav-btn.active {
+  color: #ffffff;
+  border-bottom: 2px solid #6366f1;
 }
 
 .page {
-  padding: 20px;
+  padding: 24px;
 }
 
 .hidden {
   display: none;
 }
 
-.card {
-  background: white;
-  padding: 15px;
-  margin-bottom: 10px;
-  border-radius: 8px;
+h2 {
+  margin-bottom: 16px;
 }
 
-.card button {
-  margin-top: 10px;
+#feedList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+button {
+  font-size: 14px;
+}
+
+.card button,
+#decideMe {
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.card button:hover,
+#decideMe:hover {
+  background: #4f46e5;
+}
+
+#decide {
+  text-align: center;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#savedList {
+  list-style: none;
+  padding: 0;
+}
+
+#savedList li {
+  background: white;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
 }
